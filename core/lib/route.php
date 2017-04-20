@@ -11,8 +11,8 @@ class route
     {
         //获取url中的controller和function 默认都是index
         $pathArr = explode('/', $_SERVER['REQUEST_URI']);
-        $this->controller =  empty($pathArr[1]) ? 'index' : $pathArr[1];
-        $this->function =  empty($pathArr[2]) ? 'index' : $pathArr[2];
+        $this->controller =  empty($pathArr[1]) ? config('route.default.controller') : $pathArr[1];
+        $this->function =  empty($pathArr[2]) ? config('route.default.function') : $pathArr[2];
 
          //获取url中的参数
          //url controller/function/param1/value1/param2/value2

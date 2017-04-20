@@ -6,11 +6,12 @@ class model extends \PDO
 {
     public function __construct()
     {
-        $dsn = 'mysql:host=localhost;dbname=mastercloud-local';
-        $userName = 'root';
-        $password = '';
         try {
-            parent::__construct($dsn, $userName, $password);
+            parent::__construct(
+                sprintf('%s:host=%s;dbname=%s', config('database.mysql.driver'), config('database.mysql.host'), config('database.mysql.database')),
+                config('database.mysql.username'),
+                config('database.mysql.password')
+            );
         } catch (\PDOException $e) {
             p($e->getMessage());
         }

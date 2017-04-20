@@ -8,7 +8,7 @@ if (! function_exists('p')) {
      *
      * @param $var
      */
-    function p($var)
+    function p($var, $exit = false)
     {
         if (is_bool($var)) {
             var_dump($var);
@@ -17,7 +17,7 @@ if (! function_exists('p')) {
         } else {
             echo "<pre>" . print_r($var, true) . "</pre>";
         }
-        exit(1);
+        $exit && exit(1);
     }
 }
 
