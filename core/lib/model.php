@@ -6,9 +6,11 @@ class model extends \PDO
 {
     public function __construct()
     {
+        $mysql = config('database.mysql');
+
         try {
             parent::__construct(
-                sprintf('%s:host=%s;dbname=%s', config('database.mysql.driver'), config('database.mysql.host'), config('database.mysql.database')),
+                sprintf('%s:host=%s;dbname=%s', $mysql['driver'], $mysql['host'], $mysql['database']),
                 config('database.mysql.username'),
                 config('database.mysql.password')
             );
