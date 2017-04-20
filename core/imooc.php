@@ -10,6 +10,12 @@ class imooc
 
     public $assign;
 
+
+    /**
+     * 启动框架
+     *
+     * @throws \Exception
+     */
     public static function run()
     {
         $route = new route();
@@ -26,12 +32,14 @@ class imooc
         } else {
             throw new \Exception("cant not find Controller:{$controllerFiel}");
         }
-
-
-
-
     }
 
+    /**
+     * 自动加载
+     *
+     * @param $class
+     * @return bool
+     */
     public static function load($class)
     {
        $class = str_replace('\\', '/', $class);
@@ -50,11 +58,23 @@ class imooc
         return true;
     }
 
+    /**
+     * 输出变量到view
+     *
+     * @param $key
+     * @param $value
+     */
     public function assign($key, $value)
     {
         $this->assign[$key] = $value;
     }
 
+    /**
+     * 显示模板
+     *
+     * @param $file
+     * @throws \Exception
+     */
     public function display($file)
     {
         $filePath = APP . '/Views/' . $file;
