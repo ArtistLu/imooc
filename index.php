@@ -9,6 +9,7 @@
 define('IMOOC', __DIR__);
 define('CORE', IMOOC . '/core');
 define('APP', IMOOC . '/app');
+define('CONFIG', IMOOC . '/config');
 define('MODULE', 'app');
 
 define('DEBUG', false);
