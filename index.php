@@ -20,6 +20,9 @@ include CORE . '/common/function.php';
 
 include CORE . '/imooc.php';
 
+date_default_timezone_set('PRC');
+
 spl_autoload_register('\core\imooc::load');
 
+//启动应用
 \core\imooc::run();

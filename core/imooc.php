@@ -2,6 +2,7 @@
 
 namespace core;
 
+use core\lib\log;
 use core\lib\route;
 
 class imooc
@@ -18,12 +19,12 @@ class imooc
      */
     public static function run()
     {
+        log::init();
         $route = new route();
-
         $className = sprintf("%sController", $route->controller);
         $controllerFiel = APP . "/Controllers/" . $className . '.php';
         $class = '\\' . MODULE . '\\Controllers\\' . $className;
-
+        log::write(sprintf(' requested %s/%s[%s]', $route->controller, $route->function, '127.0.0.1'));
         if (is_file($controllerFiel)) {
             include $controllerFiel;
             $controller = new  $class();
